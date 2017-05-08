@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Simple Chat</title>
+  <!-- Dependencies -->
+  <!-- CSS -->
+  <link rel="stylesheet" href="./components/messages/messages.css">
+  <link rel="stylesheet" href="./components/msg-form/msg-form.css">
+  <!-- JavaScript -->
+  <script src="./components/messages/messages.js"></script>
+  <script src="./components/msg-form/msg-form.js"></script>
+</head>
+<body>
+
+<div class="js-messages">
+
+</div>
+
+<div class="js-msg-form">
+
+</div>
+
+<script>
+  let messages = new Messages({
+    elem: document.querySelector('.js-messages'),
+  });
+
+  let msgForm = new MsgForm({
+    elem: document.querySelector('.js-msg-form'),
+  });
+
+  messages.render();
+  msgForm.render();
+
+  msgForm.onSubmit = message => {
+    messages.addMessage(message);
+    messages.render();
+    msgForm.render();
+  };
+</script>
+
+</body>
+</html>

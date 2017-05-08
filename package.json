@@ -1,0 +1,23 @@
+{
+  "name": "simple_chat",
+  "version": "1.0.0",
+  "description": "JavaScript chat app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "browser-sync start --server --files \"**\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/winlx/Simple_Chat.git"
+  },
+  "author": "Aleksei Iakovets",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/winlx/Simple_Chat/issues"
+  },
+  "homepage": "https://github.com/winlx/Simple_Chat#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.8"
+  }
+}

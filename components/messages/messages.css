@@ -1,0 +1,17 @@
+.messages {
+  padding: 5px;
+  border: 1px solid #cecece;
+}
+
+.messages__container {
+  padding: 10px;
+  font-family: sans-serif;
+}
+
+.messages__author {
+  font-weight: 900;
+}
+
+.messages__container_my {
+
+}
