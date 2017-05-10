@@ -13,8 +13,9 @@
 
     render() {
       let messagesFeed = this._data.messages.map(data => `
-        <div class="messages__container messages__container_my">
+        <div class="messages__container">
           <span class="messages__author">${data.username}</span>
+          <span class="messages__timestamp">${'11:54'}</span>
           <br>
           <span class="messages_msg">${data.message}</span>
         </div>
@@ -22,7 +23,12 @@
 
       this._elem.innerHTML = `
         <div class="messages">
+        <div class="messages__header">
+            <h2>LIVE CHAT</h2>
+        </div>
+        <div class="messages__feed">
           ${messagesFeed}
+        </div>
         </div>
       `;
     }

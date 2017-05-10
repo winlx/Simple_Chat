@@ -41,11 +41,11 @@
     render() {
       this._elem.innerHTML = `
         <form class="msg-form">
-          <input type="text" name="username" required placeholder="Имя пользователя">
+          <input class="msg-form__username" type="text" name="username" required placeholder="Имя пользователя">
           <br>
-          <textarea name="message" rows="3" cols="35" required placeholder="Введите сообщение"></textarea>
+          <textarea class="msg-form__input-text" name="message" rows="3" required placeholder="Введите сообщение..."></textarea>
           <br>
-          <input type="submit" value="Отправить">
+          <input class="msg-form__submit" type="submit" value="Отправить">
          </form>
       `;
     }

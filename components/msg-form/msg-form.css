@@ -1,0 +1,39 @@
+.msg-form {
+  padding-bottom: 10px;
+}
+
+.msg-form__username {
+  display: block;
+  margin-left: 20px;
+}
+
+.msg-form__input-text {
+  display: block;
+  margin: auto;
+  box-sizing: border-box;
+  width: 90%;
+  border-radius: 10px;
+  background-color: #414141;
+  color: #e1e1e1;
+  border-color: #828282;
+}
+
+.msg-form__input-text:focus {
+  outline: 0;
+  border-color: #e1e1e1;
+}
+
+.msg-form__submit {
+  display: block;
+  margin: auto;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #414141;
+  color: #e1e1e1;
+  border-color: #828282;
+}
+
+.msg-form__submit:focus {
+  outline: 0;
+  border-color: #e1e1e1;
+}
