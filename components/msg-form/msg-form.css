@@ -16,6 +16,7 @@
   background-color: #414141;
   color: #e1e1e1;
   border-color: #828282;
+  resize: none;
 }
 
 .msg-form__input-text:focus {

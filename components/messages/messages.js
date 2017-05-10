@@ -7,6 +7,12 @@
       this._data = data;
     }
 
+    /**
+     * Добавление сообщения.
+     * @param {Object} message - Объект сообщения.
+     * @param {String} message.username - Имя пользователя.
+     * @param {String} message.message - Сообщение.
+     */
     addMessage(message) {
       this._data.messages.push(message);
     }

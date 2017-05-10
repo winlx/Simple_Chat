@@ -2,16 +2,40 @@
   'use strict';
 
   class MsgForm {
-    constructor({ elem }) {
-      this._elem = elem;
+    /**
+     * @param {Object} options
+     */
+    constructor(options) {
+      this._elem = options.elem;
 
-      // Определим здесь, чтобы можно было использовать в removeEventListener
+      /**
+       * Привязывает this, чтобы можно было использовать в removeEventListener
+       * @private
+       */
       this._onSubmit = this._onSubmit.bind(this);
       this._initEvents();
     }
 
+    /**
+     * Назначение обработчика события на форме.
+     * @param {string} event
+     * @param {function} callback
+     */
+    on(event, callback) {
+      this._elem.addEventListener(event, callback);
+    }
+
+    // /**
+    //  * Удаление обработчика события на форме.
+    //  * @param {string} event
+    //  * @param {function} callback
+    //  */
+    // off(event, callback) {
+    //   this._elem.removeEventListener(event, callback);
+    // }
+
     _initEvents() {
-      this._elem.addEventListener('submit', this._onSubmit);
+      this.on('submit', this._onSubmit);
     }
 
     onSubmit(message) {
@@ -27,6 +51,10 @@
       this.onSubmit(dataForm);
     }
 
+    /**
+     * Получение данных из формы в виде объекта.
+     * @returns {Object} { username: String, message: String }
+     */
     _getFormData() {
       let formNames = this._elem.querySelectorAll('[name]');
       let data = {};

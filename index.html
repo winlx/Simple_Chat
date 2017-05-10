@@ -12,36 +12,21 @@
   <!-- JavaScript -->
   <script src="./components/messages/messages.js"></script>
   <script src="./components/msg-form/msg-form.js"></script>
+  <script src="./components/app/app.js"></script>
 </head>
 <body>
 
 <div class="app">
-  <div class="js-messages">
-
-  </div>
-
-  <div class="js-msg-form">
-
-  </div>
+  <div class="js-messages"></div>
+  <div class="js-msg-form"></div>
 </div>
 
 <script>
-  let messages = new Messages({
-    elem: document.querySelector('.js-messages'),
+  'use strict';
+
+  new App({
+    elem: document.getElementById('app'),
   });
-
-  let msgForm = new MsgForm({
-    elem: document.querySelector('.js-msg-form'),
-  });
-
-  messages.render();
-  msgForm.render();
-
-  msgForm.onSubmit = message => {
-    messages.addMessage(message);
-    messages.render();
-    msgForm.render();
-  };
 </script>
 
 </body>
