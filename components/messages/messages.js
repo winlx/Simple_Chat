@@ -1,10 +1,19 @@
 (function () {
   'use strict';
 
+  // import
+  const messagesTmpl = window.messagesTmpl;
+
   class Messages {
-    constructor({ elem, data = { messages: [] } }) {
-      this._elem = elem;
-      this._data = data;
+    /**
+     * @param {Object} options - Настройки компоненты.
+     * @param {Object} options.elem - DOM element
+     * @param {Object} options.data - Данные сообщений.
+     * @param {Array} options.data.messages - Массив объектов сообщений.
+     */
+    constructor(options) {
+      this._elem = options.elem;
+      this._data = options.data || { messages: [] };
     }
 
     /**
@@ -12,32 +21,14 @@
      * @param {Object} message - Объект сообщения.
      * @param {String} message.username - Имя пользователя.
      * @param {String} message.message - Сообщение.
-     * @param {String} message.timestamp - время сообщения.
+     * @param {String} message.timestamp - Время сообщения.
      */
     addMessage(message) {
       this._data.messages.push(message);
     }
 
     render() {
-      let messagesFeed = this._data.messages.map(data => `
-        <div class="messages__container">
-          <span class="messages__author">${data.username}</span>
-          <span class="messages__timestamp">${data.timestamp}</span>
-          <br>
-          <span class="messages_msg">${data.message}</span>
-        </div>
-      `).join('<br>');
-
-      this._elem.innerHTML = `
-        <div class="messages">
-        <div class="messages__header">
-            <h2>LIVE CHAT</h2>
-        </div>
-        <div class="messages__feed">
-          ${messagesFeed}
-        </div>
-        </div>
-      `;
+      this._elem.innerHTML = messagesTmpl(this._data);
     }
   }
 

@@ -1,0 +1,10 @@
+div.messages
+    div.messages__header
+        h2 LIVE CHAT
+    div.messages__feed
+        each message in messages
+            div.messages__container
+                span.messages__author=message.username
+                span.messages__timestamp=message.timestamp
+                br
+                span.messages_msg=message.message

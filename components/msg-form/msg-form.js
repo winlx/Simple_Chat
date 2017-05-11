@@ -2,11 +2,8 @@
   'use strict';
 
   class MsgForm {
-    /**
-     * @param {Object} options
-     */
-    constructor(options) {
-      this._elem = options.elem;
+    constructor({ elem }) {
+      this._elem = elem;
 
       /**
        * Привязывает this, чтобы можно было использовать в removeEventListener
