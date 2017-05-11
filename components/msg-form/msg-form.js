@@ -13,6 +13,7 @@
        * @private
        */
       this._onSubmit = this._onSubmit.bind(this);
+      this._username = this._getUserName();
       this._initEvents();
     }
 
@@ -24,15 +25,6 @@
     on(event, callback) {
       this._elem.addEventListener(event, callback);
     }
-
-    // /**
-    //  * Удаление обработчика события на форме.
-    //  * @param {string} event
-    //  * @param {function} callback
-    //  */
-    // off(event, callback) {
-    //   this._elem.removeEventListener(event, callback);
-    // }
 
     _initEvents() {
       this.on('submit', this._onSubmit);
@@ -46,21 +38,37 @@
     _onSubmit(event) {
       event.preventDefault();
 
-      let dataForm = this._getFormData();
+      let dataForm = this._getMessageData();
 
       this.onSubmit(dataForm);
     }
 
+    _getUserName() {
+      while (!this._username) {
+        this._username = prompt('Введите ваше имя для чата', '');
+
+        if (this._username) break;
+
+        alert('Вы не ввели имя, запрос повторится.');
+      }
+
+      return this._username;
+    }
+
     /**
-     * Получение данных из формы в виде объекта.
+     * Получение данных для сообщения в виде объекта.
      * @returns {Object} { username: String, message: String }
+     * @private
      */
-    _getFormData() {
-      let formNames = this._elem.querySelectorAll('[name]');
+    _getMessageData() {
       let data = {};
 
-      formNames.forEach((elem) => {
-        data[elem.name] = elem.value;
+      data.username = this._username;
+      data.message = this._elem.querySelector('[name=message]').value;
+      data.timestamp = new Date().toLocaleString('ru-RU', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
       });
 
       return data;
@@ -69,8 +77,6 @@
     render() {
       this._elem.innerHTML = `
         <form class="msg-form">
-          <input class="msg-form__username" type="text" name="username" required placeholder="Имя пользователя">
-          <br>
           <textarea class="msg-form__input-text" name="message" rows="3" required placeholder="Введите сообщение..."></textarea>
           <br>
           <input class="msg-form__submit" type="submit" value="Отправить">
