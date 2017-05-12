@@ -5,7 +5,7 @@
 .messages__container {
   padding: 10px;
   display: block;
-  margin: auto;
+  margin: 10px auto;
   box-sizing: border-box;
   width: 90%;
   border-radius: 10px;
