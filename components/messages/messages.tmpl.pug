@@ -5,5 +5,5 @@ div.messages
         each message in messages
             div.messages__container
                 span.messages__author=message.username
-                span.messages__timestamp=message.timestamp
+                span.messages__timestamp=(new Date(message.timestamp).toLocaleString('ru-RU', { hour: '2-digit', minute: '2-digit', second: '2-digit' }))
                 span.messages_msg=message.message

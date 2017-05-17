@@ -27,6 +27,13 @@
       this.on('submit', this._onSubmit);
     }
 
+    /**
+     * Обработчик, который назначается снаружи.
+     * @param {Object} message - Объект сообщения.
+     * @param {String} message.username - Имя пользователя.
+     * @param {String} message.message - Сообщение.
+     * @param {String} message.timestamp - Время сообщения.
+     */
     onSubmit(message) {
       console.warn('You should define your own onSubmit');
       console.info(`message: ${message}`);
@@ -40,6 +47,11 @@
       this.onSubmit(dataForm);
     }
 
+    /**
+     * Запрос имени для чата.
+     * @returns {String}
+     * @private
+     */
     _getUserName() {
       while (!this._username) {
         this._username = prompt('Введите ваше имя для чата', '');
@@ -49,12 +61,15 @@
         alert('Вы не ввели имя, запрос повторится.');
       }
 
+      // Временное значение
+      // this._username = 'Aleksei';
+
       return this._username;
     }
 
     /**
      * Получение данных для сообщения в виде объекта.
-     * @returns {Object} { username: String, message: String }
+     * @returns {Object} { username: String, message: String, timestamp: Date }
      * @private
      */
     _getMessageData() {
@@ -62,11 +77,7 @@
 
       data.username = this._username;
       data.message = this._elem.querySelector('[name=message]').value;
-      data.timestamp = new Date().toLocaleString('ru-RU', {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-      });
+      data.timestamp = Date.now();
 
       return data;
     }

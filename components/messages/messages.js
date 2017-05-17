@@ -27,8 +27,20 @@
       this._data.messages.push(message);
     }
 
+    /**
+     * Подключение всех сообщений, например, с сервера.
+     * @param {Object[]} messages - Массив объектов сообщений.
+     * @param {String} messages.username - Массив объектов сообщений.
+     * @param {String} messages.message - Массив объектов сообщений.
+     * @param {String} messages.timestamp - Массив объектов сообщений.
+     */
+    setMessages(messages) {
+      this._data.messages = messages;
+    }
+
     render() {
       this._elem.innerHTML = messagesTmpl(this._data);
+      this._elem.querySelector('.messages__feed').scrollTop = this._elem.scrollHeight;
     }
   }
 

@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./components/messages/messages.css">
   <link rel="stylesheet" href="./components/msg-form/msg-form.css">
   <!-- JavaScript -->
+  <script src="modules/httpRequest.js"></script>
   <script src="./components/messages/messages.tmpl.js"></script>
   <script src="./components/messages/messages.js"></script>
   <script src="./components/msg-form/msg-form.js"></script>
@@ -27,6 +28,7 @@
 
   new App({
     elem: document.getElementById('app'),
+    databaseURL: 'https://simple-chat-7db27.firebaseio.com/simple-chat/messages.json',
   });
 </script>
 

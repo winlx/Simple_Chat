@@ -37,6 +37,7 @@
 }
 
 .messages__timestamp {
+  padding-left: 10px;
   font-size: 12px;
 }
 
