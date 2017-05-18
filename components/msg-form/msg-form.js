@@ -1,6 +1,9 @@
 (function () {
   'use strict';
 
+  // import
+  const msgFormTmpl = window.msgFormTmpl;
+
   class MsgForm {
     constructor({ elem }) {
       this._elem = elem;
@@ -83,13 +86,7 @@
     }
 
     render() {
-      this._elem.innerHTML = `
-        <form class="msg-form">
-          <textarea class="msg-form__input-text" name="message" rows="3" required placeholder="Введите сообщение..."></textarea>
-          <br>
-          <input class="msg-form__submit" type="submit" value="Отправить">
-         </form>
-      `;
+      this._elem.innerHTML = msgFormTmpl();
     }
   }
 

@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "browser-sync start --server --files \"**\"",
-    "build": "pug --client --name=messagesTmpl components/messages/messages.tmpl.pug"
+    "build:messages": "pug --client --name=messagesTmpl components/messages/messages.tmpl.pug",
+    "build:msgForm": "pug --client --name=msgFormTmpl components/msg-form/msg-form.tmpl.pug"
   },
   "repository": {
     "type": "git",
