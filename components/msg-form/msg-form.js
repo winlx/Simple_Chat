@@ -15,40 +15,7 @@
     }
 
     /**
-     * Назначение обработчика события на форме.
-     * @param {string} event
-     * @param {function} callback
-     */
-    on(event, callback) {
-      this._elem.addEventListener(event, callback);
-    }
-
-    _initEvents() {
-      this.on('submit', this._onSubmit);
-    }
-
-    /**
-     * Обработчик, который назначается снаружи.
-     * @param {Object} message - Объект сообщения.
-     * @param {String} message.username - Имя пользователя.
-     * @param {String} message.message - Сообщение.
-     * @param {String} message.timestamp - Время сообщения.
-     */
-    onSubmit(message) {
-      console.warn('You should define your own onSubmit');
-      console.info(`message: ${message}`);
-    }
-
-    _onSubmit(event) {
-      event.preventDefault();
-
-      let dataForm = this._getMessageData();
-
-      this.onSubmit(dataForm);
-    }
-
-    /**
-     * Запрос имени для чата.
+     * Запросить имя для чата.
      * @returns {String}
      * @private
      */
@@ -67,8 +34,29 @@
       return this._username;
     }
 
+    _initEvents() {
+      this.on('submit', this._onSubmit);
+    }
+
     /**
-     * Получение данных для сообщения в виде объекта.
+     * Назначить обработчик события на форме.
+     * @param {string} event
+     * @param {function} callback
+     */
+    on(event, callback) {
+      this._elem.addEventListener(event, callback);
+    }
+
+    _onSubmit(event) {
+      event.preventDefault();
+
+      let dataForm = this._getMessageData();
+
+      this.onSubmit(dataForm);
+    }
+
+    /**
+     * Получить данные для сообщения в виде объекта.
      * @returns {Object} { username: String, message: String, timestamp: Date }
      * @private
      */
@@ -80,6 +68,18 @@
       data.timestamp = Date.now();
 
       return data;
+    }
+
+    /**
+     * Обработчик сообщений формы, который назначается снаружи.
+     * @param {Object} message - Объект сообщения.
+     * @param {String} message.username - Имя пользователя.
+     * @param {String} message.message - Сообщение.
+     * @param {String} message.timestamp - Время сообщения.
+     */
+    onSubmit(message) {
+      console.warn('You should define your own onSubmit');
+      console.info(`message: ${message}`);
     }
 
     render() {

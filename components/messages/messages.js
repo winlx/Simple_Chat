@@ -17,7 +17,7 @@
     }
 
     /**
-     * Добавление сообщения.
+     * Добавить сообщение.
      * @param {Object} message - Объект сообщения.
      * @param {String} message.username - Имя пользователя.
      * @param {String} message.message - Сообщение.
@@ -28,7 +28,7 @@
     }
 
     /**
-     * Подключение всех сообщений, например, с сервера.
+     * Подключить массив сообщений, например с сервера.
      * @param {Object[]} messages - Массив объектов сообщений.
      * @param {String} messages.username - Массив объектов сообщений.
      * @param {String} messages.message - Массив объектов сообщений.
@@ -40,7 +40,13 @@
 
     render() {
       this._elem.innerHTML = messagesTmpl(this._data);
-      this._elem.querySelector('.messages__feed').scrollTop = this._elem.scrollHeight;
+      this._scrollToBottom();
+    }
+
+    _scrollToBottom() {
+      let messagesFeed = this._elem.querySelector('.messages__feed');
+      messagesFeed.scrollTop = messagesFeed.scrollHeight - messagesFeed.clientHeight;
+
     }
   }
 
