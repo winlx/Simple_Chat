@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "browser-sync start --server --files \"**\"",
     "build:messages": "pug --client --name=messagesTmpl components/messages/messages.tmpl.pug",
-    "build:msgForm": "pug --client --name=msgFormTmpl components/msg-form/msg-form.tmpl.pug"
+    "build:msgForm": "pug --client --name=msgFormTmpl components/msg-form/msg-form.tmpl.pug",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,11 @@
   "homepage": "https://github.com/winlx/Simple_Chat#readme",
   "devDependencies": {
     "browser-sync": "^2.18.8",
+    "css-loader": "^0.28.2",
+    "extract-text-webpack-plugin": "^2.1.0",
     "pug": "^2.0.0-rc.1",
-    "pug-cli": "^1.0.0-alpha6"
+    "pug-cli": "^1.0.0-alpha6",
+    "pug-loader": "^2.3.0",
+    "webpack": "^2.5.1"
   }
 }

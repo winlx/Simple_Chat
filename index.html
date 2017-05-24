@@ -3,35 +3,15 @@
 <head>
   <meta charset="utf-8">
   <title>Simple Chat</title>
-  <!-- Dependencies -->
-  <!-- CSS -->
   <link rel="stylesheet" href="./resources/css/theme.css">
-  <link rel="stylesheet" href="./components/app/app.css">
-  <link rel="stylesheet" href="./components/messages/messages.css">
-  <link rel="stylesheet" href="./components/msg-form/msg-form.css">
-  <!-- JavaScript -->
-  <script src="modules/httpRequest.js"></script>
-  <script src="./components/messages/messages.tmpl.js"></script>
-  <script src="./components/messages/messages.js"></script>
-  <script src="./components/msg-form/msg-form.tmpl.js"></script>
-  <script src="./components/msg-form/msg-form.js"></script>
-  <script src="./components/app/app.js"></script>
+  <link rel="stylesheet" href="./assets/styles.css">
 </head>
 <body>
 
 <div class="app">
-  <div class="js-messages"></div>
-  <div class="js-msg-form"></div>
 </div>
 
-<script>
-  'use strict';
-
-  new App({
-    elem: document.getElementById('app'),
-    databaseURL: 'https://simple-chat-7db27.firebaseio.com/simple-chat/messages.json',
-  });
-</script>
+<script src="./assets/bundle.js"></script>
 
 </body>
 </html>
