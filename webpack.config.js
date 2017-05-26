@@ -7,7 +7,10 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.pug$/, use: 'pug-loader' },
+      {
+        test: /\.pug$/,
+        use: 'pug-loader',
+      },
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
